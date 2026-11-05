@@ -44,3 +44,11 @@
 		fill: var(--tooltip-background-color);
 	}
 }
+
+/*
+ * The global tooltip is force-mounted, so reka keeps its popper wrapper in place after closing.
+ * The content is only faded out, which leaves an invisible box that would otherwise swallow clicks.
+ */
+[data-reka-popper-content-wrapper]:has(> .tooltip) {
+	pointer-events: none;
+}
